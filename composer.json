@@ -1,0 +1,22 @@
+{
+    "name": "ttst49/philosofy",
+    "description": "php framework",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ttst49",
+            "email": "thibautstachnick@gmail.com"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1"
+    }
+    }

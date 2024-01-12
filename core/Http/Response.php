@@ -20,11 +20,16 @@ class Response
             header("Location: index.php");
             exit;
         }else{
-            header("Location: ${route}");
-
+            header("Location: $route");
         }
         return $this;
 
+    }
+
+    public function json():Response{
+        //TODO: faire ça
+        echo "coucou";
+        return $this;
     }
 
 }

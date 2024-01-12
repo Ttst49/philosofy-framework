@@ -5,6 +5,7 @@ use App\Entity\Pizza;
 use Core\Attributes\Table;
 use Core\Attributes\TargetEntity;
 use Core\Database\PDOMySQL;
+use ReflectionClass;
 
 abstract class Repository
 {
@@ -24,7 +25,7 @@ abstract class Repository
 
 
     protected function resolveTargetEntity(){
-        $reflection = new \ReflectionClass($this);
+        $reflection = new ReflectionClass($this);
         $attributes = $reflection->getAttributes(TargetEntity::class);
         $arguments = $attributes[0]->getArguments();
         $name = $arguments["name"];
@@ -32,7 +33,7 @@ abstract class Repository
     }
 
     public function resolveTableName(){
-        $reflection = new \ReflectionClass($this->targetEntity);
+        $reflection = new ReflectionClass($this->targetEntity);
         $attributes = $reflection->getAttributes(Table::class);
         $arguments = $attributes[0]->getArguments();
         $tableName = $arguments['name'];

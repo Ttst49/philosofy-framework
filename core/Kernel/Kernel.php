@@ -3,6 +3,9 @@
 namespace Core\Kernel;
 
 use Core\Environment\DotEnv;
+use Core\Http\Request;
+use Core\Http\Response;
+use Core\Route\Router;
 
 class Kernel
 {
@@ -15,6 +18,7 @@ class Kernel
         if($environment === "dev"){
             \Core\Debugging\Debugger::run();
         }
+
 
 
     $type = "home";
@@ -34,6 +38,20 @@ class Kernel
 
 
 
+    }
+
+
+    public static function handleRequest():Response{
+        $request = new Request();
+        /**
+         * foreach ($request->getGlobals() as $key=>$global) {
+         * echo "<p><strong>$key</strong>: $global</p>";
+         * }
+         */
+        $router = new Router();
+        $controllerAndMethod = $router->getControllerAndMethod($request);
+        $controller = new $controllerAndMethod["controller"]();
+        return $controller->$controllerAndMethod["method"]();
     }
 
 }

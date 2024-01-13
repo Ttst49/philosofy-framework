@@ -3,7 +3,10 @@
 namespace Core\Route;
 
 use App\Controller\HomeController;
+use Core\Controller\Controller;
 use Core\Http\Request;
+use ReflectionClass;
+use \Core\Attributes\Route;
 
 class Router
 {
@@ -20,7 +23,13 @@ class Router
 
 
     public function getRoutes():array{
-        // recup toutes les classes dy namespace controller
+
+          $reflection = new ReflectionClass(HomeController::class);
+          var_dump($reflection);
+          $attributes = $reflection->getAttributes(Route::class);
+          $arguments = $attributes[0]->getArguments();
+          $uri = $arguments["uri"];
+        // recup toutes les classes du namespace controller
         // foreach controller as controller
         // pour chaque controlleur il faut recup les attributs
         // voir dans le Abstract Repository

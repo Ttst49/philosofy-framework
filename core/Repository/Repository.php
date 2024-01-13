@@ -28,16 +28,14 @@ abstract class Repository
         $reflection = new ReflectionClass($this);
         $attributes = $reflection->getAttributes(TargetEntity::class);
         $arguments = $attributes[0]->getArguments();
-        $name = $arguments["name"];
-        return $name;
+        return $arguments["name"];
     }
 
     public function resolveTableName(){
         $reflection = new ReflectionClass($this->targetEntity);
         $attributes = $reflection->getAttributes(Table::class);
         $arguments = $attributes[0]->getArguments();
-        $tableName = $arguments['name'];
-        return $tableName;
+        return $arguments['name'];
     }
 
     public function findAll():array

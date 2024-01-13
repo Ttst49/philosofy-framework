@@ -19,7 +19,8 @@ class Kernel
             \Core\Debugging\Debugger::run();
         }
 
-
+        $router = new Router();
+        $router->getRoutes();
 
     $type = "home";
     $action = "index";

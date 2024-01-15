@@ -10,9 +10,23 @@ use Core\Repository\Repository;
 class PizzaRepository extends Repository
 {
 
+    //pizza get_class($pizza)=>pizza::class
+    //reflection = on recup les props qui portent l'attribut column
+    //$props = ["name","desc",...]
     public function save(Pizza $pizza){
 
-        $query = $this->pdo->prepare("INSERT INTO $this->tableName SET name:name, description:description, degree:degree");
+        $sql = "INSERT INTO $this->tableName";
+        foreach ($props as $prop){
+            $sql.+"$prop=:$prop";
+        }
+
+        $tableauExecute = [];
+        foreach ($props as $prop){
+            $getter = "get".ucfirst($prop);
+            $tableauExecute[$prop] = $object->$getter();
+        }
+
+        $query = $this->pdo->prepare($sql);
 
         $query->execute(
             [

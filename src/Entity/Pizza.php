@@ -4,6 +4,8 @@ namespace App\Entity;
 
 
 use App\Repository\PizzaRepository;
+use Core\Attributes\Column;
+use Core\Attributes\Id;
 use Core\Attributes\Table;
 use Core\Attributes\TargetRepository;
 
@@ -12,10 +14,34 @@ use Core\Attributes\TargetRepository;
 class Pizza
 {
 
+    #[Id()]
     private int $id;
+
+    #[Column(name:"name")]
     private string $name;
+
+    #[Column(name:"description")]
     private string $description;
+
+    #[Column(name:"price")]
     private int $price;
+
+    /**
+     * #[ManyToOne(invertedBy: Comment::class)]
+     * private array $comments;
+     *
+     *
+     * public function getComments(){
+     * $classname = get_class($this);
+     * $method= "findBy".$classname;
+     * return findByPizza($this);
+     * }
+     *
+     * #[ForeignKey(className: Pizza::class)]
+     * private int $pizza_id;
+     */
+
+
 
     public function getId(): int
     {

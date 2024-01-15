@@ -2,6 +2,8 @@
 
 namespace Core\Kernel;
 
+use App\Controller\HomeController;
+use App\Entity\Pizza;
 use Core\Environment\DotEnv;
 use Core\Http\Request;
 use Core\Http\Response;
@@ -19,9 +21,7 @@ class Kernel
             \Core\Debugging\Debugger::run();
         }
 
-        $router = new Router();
-        $router->getRoutes();
-
+        var_dump($_POST);
     $type = "home";
     $action = "index";
 

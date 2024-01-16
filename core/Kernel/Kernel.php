@@ -21,7 +21,7 @@ class Kernel
             \Core\Debugging\Debugger::run();
         }
 
-        var_dump($_POST);
+        //var_dump($_POST);
     $type = "home";
     $action = "index";
 

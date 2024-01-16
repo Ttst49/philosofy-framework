@@ -22,7 +22,7 @@ class HomeController extends \Core\Controller\Controller
         // if ($pizza){save}
 
         $request = new Request();
-        $request->createObjectFromPropertiesArray($request->resolvePropertiesFromEntity(Pizza::class),Pizza::class);
+        $request->createObjectFromClassName(Pizza::class);
 
 
         return $this->render("home/index", [

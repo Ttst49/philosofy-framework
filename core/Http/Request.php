@@ -64,12 +64,15 @@ class Request
          */
     }
 
-    public function createObjectFromPropertiesArray(array $properties, $classname){
+    public function createObjectFromClassName($classname): void
+    {
 
         $classnameUpperCase = ucfirst($classname);
         $object = new $classnameUpperCase();
+        //var_dump($object);
 
-        $ifStatementArray = [];
+        $properties = $this->resolvePropertiesFromEntity($classname);
+
         foreach ($properties as $property){
             if (!empty($_POST[$property["name"]])
                 &&  $_POST[$property["name"]] !== ""
@@ -93,7 +96,12 @@ class Request
 
             }
         }
-        var_dump($object);
+        $entity = new \ReflectionClass($classname);
+        $attributes = $entity->getAttributes(TargetRepository::class);
+        $repoName = $attributes[0]->getArguments()["name"];
+        $repository = new $repoName();
+        $repository->save($object);
+
 
 
 

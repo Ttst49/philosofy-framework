@@ -16,6 +16,7 @@ class PizzaRepository extends Repository
     public function save(Pizza $pizza){
 
         $sql = "INSERT INTO $this->tableName";
+
         foreach ($props as $prop){
             $sql.+"$prop=:$prop";
         }

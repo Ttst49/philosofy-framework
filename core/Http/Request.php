@@ -2,10 +2,11 @@
 
 namespace Core\Http;
 
-use App\Entity\Pizza;
 use Core\Attributes\Column;
-use Core\Attributes\Id;
 use Core\Attributes\TargetRepository;
+use Exception;
+use ReflectionClass;
+use ReflectionException;
 
 class Request
 {
@@ -20,14 +21,18 @@ class Request
         return $this->globals;
     }
 
+    /**
+     * @throws ReflectionException
+     * @throws Exception
+     */
     public function resolvePropertiesFromEntity($className):array{
 
         $properties = [];
 
-        $reflection = new \ReflectionClass($className);
+        $reflection = new ReflectionClass($className);
         $namespaceName = $reflection->getNamespaceName();
         if (!str_contains($namespaceName, "Entity")){
-            throw new \Exception("essaye plutot avec une entité");
+            throw new Exception("essaye plutot avec une entité");
         }
 
         $props = $reflection->getProperties();
@@ -45,6 +50,7 @@ class Request
             }
         }
 
+        // For showing every property with it type for debugging
         /**
          * foreach ($properties as $property){
          * echo ("<br>");
@@ -56,19 +62,17 @@ class Request
          */
 
         return $properties;
-        /**
-         * $entity = ucfirst($className);
-         * if(!class_exists("\App\Entity\.$entity")){
-         * throw new \Exception("essaye plutot avec une entité");
-         * }
-         */
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function createObjectFromClassName($classname): void
     {
 
         $classnameUpperCase = ucfirst($classname);
         $object = new $classnameUpperCase();
+        //for debugging only
         //var_dump($object);
 
         $properties = $this->resolvePropertiesFromEntity($classname);
@@ -83,6 +87,7 @@ class Request
                         $setter = "set".$property['name'];
                         $object->$setter($_POST[$property["name"]]);
                         var_dump($setter);
+                        break;
 
                     case "int" || "float":
                         if (ctype_digit($_POST[$property["name"]])){
@@ -96,7 +101,7 @@ class Request
 
             }
         }
-        $entity = new \ReflectionClass($classname);
+        $entity = new ReflectionClass($classname);
         $attributes = $entity->getAttributes(TargetRepository::class);
         $repoName = $attributes[0]->getArguments()["name"];
         $repository = new $repoName();

@@ -4,7 +4,8 @@ namespace Core\View;
 
 class View
 {
-   public static function render($nomDeTemplate, $donnees){
+   public static function render($nomDeTemplate, $donnees): void
+   {
 
         ob_start();
         extract($donnees);
@@ -20,4 +21,15 @@ class View
         echo ob_get_clean();
 
     }
+
+   /**
+    * function view($viewName,$data = []){
+    * $viewPath = __DIR__."/templates/";
+    * require $viewPath.$viewName.".html.noot";
+    * //idées retenues:flop, weed,🤡,dwayneJohnson, quack, noot
+    *
+    */
+
+
+
 }

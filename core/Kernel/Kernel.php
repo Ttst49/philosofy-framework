@@ -4,6 +4,7 @@ namespace Core\Kernel;
 
 use App\Controller\HomeController;
 use App\Entity\Pizza;
+use Core\Debugging\Debugger;
 use Core\Environment\DotEnv;
 use Core\Http\Request;
 use Core\Http\Response;
@@ -16,12 +17,11 @@ class Kernel
     {
         $dotEnv = new DotEnv();
         $environment = $dotEnv->getVariable("ENVIRONMENT");
-
         if($environment === "dev"){
-            \Core\Debugging\Debugger::run();
+            //\Core\Debugging\Debugger::run();
+            $debugger = new Debugger();
         }
 
-        //var_dump($_POST);
     $type = "home";
     $action = "index";
 

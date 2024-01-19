@@ -67,13 +67,11 @@ class Request
     /**
      * @throws ReflectionException
      */
-    public function createObjectFromClassName($classname): void
+    public function createObjectFromClassName($classname): object | null
     {
 
         $classnameUpperCase = ucfirst($classname);
         $object = new $classnameUpperCase();
-        //for debugging only
-        //var_dump($object);
 
         $properties = $this->resolvePropertiesFromEntity($classname);
 
@@ -86,31 +84,20 @@ class Request
                     case "string":
                         $setter = "set".$property['name'];
                         $object->$setter($_POST[$property["name"]]);
-                        var_dump($setter);
                         break;
 
                     case "int" || "float":
                         if (ctype_digit($_POST[$property["name"]])){
                             $setter = "set".$property['name'];
                             $object->$setter($_POST[$property["name"]]);
-                            var_dump($setter);
                         }
                         break;
-
                 }
-
+            }else{
+                return null;
             }
         }
-        $entity = new ReflectionClass($classname);
-        $attributes = $entity->getAttributes(TargetRepository::class);
-        $repoName = $attributes[0]->getArguments()["name"];
-        $repository = new $repoName();
-        $repository->save($object);
-
-
-
-
-
+        return $object;
     }
 
 }

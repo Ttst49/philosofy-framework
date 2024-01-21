@@ -24,4 +24,8 @@ abstract class Controller
         return $this->response->render($nomDeTemplate, $donnees);
     }
 
+    public function renderQuack(string $viewName, $data){
+        return $this->response->renderQuack($viewName, $data);
+    }
+
 }

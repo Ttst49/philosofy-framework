@@ -26,6 +26,11 @@ class Response
 
     }
 
+    public function renderQuack($viewName, $data){
+        View::renderQuack($viewName,$data);
+        return $this;
+    }
+
     public function json():Response{
         //TODO: faire ça
         echo "coucou";

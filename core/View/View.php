@@ -5,7 +5,7 @@ namespace Core\View;
 class View
 {
 
-      public static function render($nomDeTemplate, $donnees): void
+      public static function oldRender($nomDeTemplate, $donnees): void
       {
 
       ob_start();
@@ -24,7 +24,7 @@ class View
       }
 
 
-     public static function renderQuack($viewName,$data = []): void
+     public static function render($viewName,$data = []): void
      {
          $viewPath = "../templates/";
          $cachePath = "../cache/";

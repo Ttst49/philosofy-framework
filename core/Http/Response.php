@@ -7,9 +7,9 @@ use Core\View\View;
 class Response
 {
 
-    public function render($nomDeTemplate, $donnees)
+    public function oldRender($nomDeTemplate, $donnees)
     {
-         View::render($nomDeTemplate, $donnees);
+         View::oldRender($nomDeTemplate, $donnees);
          return $this;
     }
 
@@ -26,8 +26,8 @@ class Response
 
     }
 
-    public function renderQuack($viewName, $data){
-        View::renderQuack($viewName,$data);
+    public function render($viewName, $data){
+        View::render($viewName,$data);
         return $this;
     }
 

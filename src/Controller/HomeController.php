@@ -18,11 +18,13 @@ class HomeController extends \Core\Controller\Controller
     public function index():Response
     {
 
-        return $this->renderQuack("home/index",$data=["pageTitle"=>"Je suis le titre","name"=>"jean pigeon"]);
+        return $this->render("home/index", $data=
+            ["pageTitle"=>"Je suis le titre","name"=>"jean pigeon"]
+        );
 
 
         /**
-         * return $this->render("home/index", [
+         * return $this->oldRender("home/index", [
          * "pageTitle"=> "Welcome to the framework"
          * ]);
          */

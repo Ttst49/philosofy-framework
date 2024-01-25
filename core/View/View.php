@@ -30,8 +30,9 @@ class View
          $cachePath = "../cache/";
          extract($data);
          $content = file_get_contents($viewPath . $viewName . ".html.quack");
-         $content = preg_replace('/{{\s*(.+?)\s*}}/', '<?php echo $1; ?>', $content);
-         $cacheFile = $cachePath.$viewName.".html.quack";
+         $content = preg_replace('/{{\s*(.+?)\s*}}/', '<?= $1; ?>', $content);
+         $content = preg_replace('/{%\s*(.+?)\s*%}/', '<?php $1 ?>', $content);
+         $cacheFile = $cachePath.$viewName.".html.php";
          $directoryName = strtok($viewName, '/');
          mkdir($cachePath.$directoryName);
          file_put_contents($cacheFile,$content);
@@ -41,4 +42,3 @@ class View
      }
 
 }
-//idées retenues:flop, weed,🤡,dwayneJohnson, quack, noot

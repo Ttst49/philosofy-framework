@@ -2,6 +2,8 @@
 
 namespace Core\View;
 
+use Core\Quack\Quack;
+
 class View
 {
 
@@ -24,8 +26,10 @@ class View
       }
 
 
-     public static function render($viewName,$data = []): void
+     public static function render($viewName,$data): void
      {
+
+         /**
          $viewPath = "../templates/";
          $cachePath = "../cache/";
          extract($data);
@@ -36,9 +40,11 @@ class View
          $directoryName = strtok($viewName, '/');
          mkdir($cachePath.$directoryName);
          file_put_contents($cacheFile,$content);
-         $cacheFile = ob_get_clean();
-         require_once "../templates/base.html.php";
-         echo ob_get_clean();
+         //require_once "../templates/base.html.php";
+         require $cacheFile;
+
+          **/
+         Quack::cache($viewName);
      }
 
 }

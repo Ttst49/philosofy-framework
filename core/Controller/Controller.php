@@ -21,13 +21,14 @@ abstract class Controller
 
         return $this->response->redirect($route);
     }
-    public function render($nomDeTemplate, $donnees)
+    public function oldRender($nomDeTemplate, $donnees)
     {
-        return $this->response->render($nomDeTemplate, $donnees);
+        return $this->response->oldRender($nomDeTemplate, $donnees);
     }
 
-    public function renderQuack(string $viewName, $data){
-        return $this->response->renderQuack($viewName, $data);
+    public function render(string $viewName, $data): Response
+    {
+        return $this->response->render($viewName, $data);
     }
 
 }

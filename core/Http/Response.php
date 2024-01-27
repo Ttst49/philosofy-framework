@@ -26,7 +26,7 @@ class Response
 
     }
 
-    public function render($viewName, $data){
+    public function render($viewName, $data):Response{
         View::render($viewName,$data);
         return $this;
     }
@@ -34,6 +34,12 @@ class Response
     public function json():Response{
         //TODO: faire ça
         echo "coucou";
+        return $this;
+    }
+
+    public function renderError($nomDeTemplate)
+    {
+        View::renderError($nomDeTemplate);
         return $this;
     }
 

@@ -18,9 +18,15 @@ if($argv[1]==="make:entity")
 
 
     print_r("\n");
-    makeEntityFile($entityName,$tableName);
+
+    $properties = array();
+    $properties = addProperty($properties);
+
+
+
+    makeEntityFile($entityName,$tableName, $properties);
     print_r("\n");
-    print_r("Your Entity was created as src/Entity/${entityName}.php");
+    print_r("Your Entity was created at src/Entity/${entityName}.php");
     print_r("\n");
 
     print_r("\n");
@@ -36,42 +42,105 @@ if($argv[1]==="make:controller")
 
     touch("src/Controller/${controllerFinalName}");
     mkdir("templates/".$controllerName);
-    touch("templates/$controllerName/index.html.php");
+    touch("templates/$controllerName/index.test.html");
     print_r("\n");
     print_r("Your controller was created as src/Controller/$controllerFinalName");
     print_r("\n");
 
-    print_r("A new template created as templates/${controllerName}/index.html.php");
+    print_r("A new template created as templates/${controllerName}/index.test.html");
     print_r("\n");
 
 }
 
-
-function makeEntityFile($entityName, $tableName)
+function addProperty($properties)
 {
+    $propertyName = readline("What is the name of your property (press enter to stop) ? \n");
+    if ($propertyName === "")
+    {
+        return $properties;
+    }
+    $propertyType = readline("What is the type of your property ? \n");
+    print_r("\n");
+    $properties [] = array(
+            "name"=>$propertyName,
+            "type"=>$propertyType
+    );
+    return addProperty($properties);
+}
+function makeEntityFile($entityName, $tableName, $properties): void
+{
+    $returnedProperties = "";
+    if ( !file_exists( "src/Entity" ) && !is_dir( "src/Entity" ) ) {
+        mkdir( "src/Entity" );
+    }
+    if ($properties)
+    {
+        foreach ($properties as $property) {
+            $content =
+                "
+    #[Column(name: '${property["name"]}')]
+    private ?${property["type"]} $${property["name"]} = null;          
+            ";
+            $returnedProperties = $returnedProperties.$content;
+        }
+    }
+
+
     $entityName = ucfirst($entityName);
 
-    touch("src/Entity/${entityName}.php");
+    $repoName = $entityName."Repository";
 
-    $content =
+    $entityContent =
         "<?php
 \n
+namespace App\Entity;
 \n
-#[Table(name:${$tableName})]
+use App\Repository\\$repoName;
+use Core\Attributes\Column;
+use Core\Attributes\Table;
+use Core\Attributes\TargetRepository;
 \n
-#[\Core\Attributes\TargetRepository(name:${entityName}.'Repository')]
-\n
-class ${entityName}
-\n
+#[Table(name:'$tableName')]
+#[TargetRepository(name:$repoName::class)]
+class $entityName
 {
-\n
-//you can now declare fields according to the table, plus getters and setters
+    #[Column(name: 'id')]
+    private ?int \$id = null;
+    
+    $returnedProperties
+    
+    public function getId(): ?int
+    {
+        return \$this->id;
+    }
 }
 ";
 
-    $file = fopen("src/Entity/${$entityName}.php", "w");
-    fwrite($file,$content);
-    fclose($file);
+    $entityFile = fopen("src/Entity/${entityName}.php", "w");
+    fwrite($entityFile,$entityContent);
+    fclose($entityFile);
 
 
+    if ( !file_exists( "src/Repository" ) && !is_dir( "src/Repository" ) ) {
+        mkdir( "src/Repository" );
+    }
+
+    $repoContent =
+        "<?php 
+\n
+namespace App\Repository;
+\n
+use App\Entity\\$entityName;
+\n
+\n
+class $repoName
+{
+\n
+public function __construct(){}
+}
+        ";
+
+    $repoFile = fopen("src/Repository/${repoName}.php", "w");
+    fwrite($repoFile, $repoContent);
+    fclose($repoFile);
 }

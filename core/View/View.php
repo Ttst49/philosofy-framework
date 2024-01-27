@@ -28,7 +28,6 @@ class View
 
      public static function render($viewName,$data): void
      {
-
          /**
          $viewPath = "../templates/";
          $cachePath = "../cache/";
@@ -44,7 +43,17 @@ class View
          require $cacheFile;
 
           **/
-         Quack::cache($viewName);
+         Quack::view($viewName,$data);
      }
+
+
+    public static function renderError($nomDeTemplate){
+
+
+        ob_start();
+        require_once "../templates/error/$nomDeTemplate.html.php";
+        echo ob_get_clean();
+
+    }
 
 }

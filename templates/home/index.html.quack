@@ -1,10 +1,12 @@
 {% extends base %}
 
+{% block title %} {{ $title }} {% endblock %}
 
+{% block content %}
     <h2>Bienvenue dans le framework</h2>
     <p>Bonjour {{ $name }}</p>
     {% foreach($fruits as $fruit): %}
-        <p>{{ $fruit }}</p>
+        <p>Le fruit est {{ $fruit }}</p>
     {% endforeach %}
 
     <form method="post" action="#">
@@ -19,3 +21,4 @@
             OK CHEF
         </button>
     </form>
+{% endblock %}

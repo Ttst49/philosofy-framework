@@ -86,7 +86,8 @@ class Quack
         return $content;
     }
 
-    static function compileYield($content) {
+    static function compileYield($content): array|string|null
+    {
         foreach(self::$blocks as $block => $value) {
             $content = preg_replace('/{% ?yield ?' . $block . ' ?%}/', $value, $content);
         }

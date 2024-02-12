@@ -9,13 +9,14 @@ class Quack
     static string $cachePath = "../cache/";
     static string $cacheMode = "dev";
     static string $templateDirectory = "../templates/";
+    static array $blockNameRegistry = ["content","title", "carotte"];
 
 
     static function view($file, $data = array()): void
     {
         $cacheFile = self::cache($file);
         extract($data, EXTR_SKIP);
-        require $cacheFile;
+        require_once $cacheFile;
     }
 
 
@@ -73,17 +74,45 @@ class Quack
 
     static function compileBlock($content): array|string
     {
-        preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
+
+          preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
+        /**
+         * foreach ($matches as $value) {
+         * if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
+         * if (!str_contains($value[2], '@parent')) {
+         * self::$blocks[$value[1]] = $value[2];
+         * } else {
+         * self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
+         * }
+         * $content = str_replace($value[0], '', $content);
+         * }
+         */
+
+
+          self::compileBlockContent($content);
+          self::compileBlockTitle($content);
+
+        return $content;
+    }
+
+    static function compileBlockContent($content){
+        preg_match_all('/{% ?block  ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
         foreach ($matches as $value) {
-            if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
-            if (!str_contains($value[2], '@parent')) {
-                self::$blocks[$value[1]] = $value[2];
-            } else {
-                self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
-            }
-            $code = str_replace($value[0], '', $content);
+                if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
+                if (!str_contains($value[2], '@parent')) {
+                    self::$blocks[$value[1]] = $value[2];
+                } else {
+                    self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
+                }
+                $content = str_replace($value[0], '', $content);
         }
         return $content;
+    }
+
+    //registre des noms de blocks autorisés
+
+    static function compileBlockTitle($content){
+
     }
 
     static function compileYield($content): array|string|null
@@ -94,7 +123,5 @@ class Quack
         $content = preg_replace('/{% ?yield ?(.*?) ?%}/i', '', $content);
         return $content;
     }
-
-
 
 }

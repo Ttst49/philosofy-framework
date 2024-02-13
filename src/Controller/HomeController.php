@@ -19,7 +19,10 @@ class HomeController extends \Core\Controller\Controller
     {
 
         return $this->render("home/index", $data=
-            ["title"=>"Je suis le titre","name"=>"tibo","fruits"=>["banane","poire","abricot"]]
+            ["title"=>"Je suis le titre",
+            "name"=>"tibo",
+            "fruits"=>["banane","poire","abricot"
+            ]]
         );
 
 

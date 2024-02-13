@@ -89,14 +89,15 @@ class Quack
          */
 
 
-          self::compileBlockContent($content);
+          //self::compileBlockContent($content);
           self::compileBlockTitle($content);
 
         return $content;
     }
 
     static function compileBlockContent($content){
-        preg_match_all('/{% ?block  ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
+        preg_match_all('/{% ?block content ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
+
         foreach ($matches as $value) {
                 if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
                 if (!str_contains($value[2], '@parent')) {
@@ -112,7 +113,28 @@ class Quack
     //registre des noms de blocks autorisés
 
     static function compileBlockTitle($content){
+        preg_match_all('/{% ?block title ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
 
+        foreach ($matches as $value) {
+            if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
+            if (!str_contains($value[2], '@parent')) {
+                self::$blocks[$value[1]] = $value[2];
+            } else {
+                self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
+            }
+            $content = str_replace($value[0], '', $content);
+        }
+        return $content; preg_match_all('/{% ?block title ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
+        foreach ($matches as $value) {
+                if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
+                if (!str_contains($value[2], '@parent')) {
+                    self::$blocks[$value[1]] = $value[2];
+                } else {
+                    self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
+                }
+                $content = str_replace($value[0], '', $content);
+        }
+        return $content;
     }
 
     static function compileYield($content): array|string|null

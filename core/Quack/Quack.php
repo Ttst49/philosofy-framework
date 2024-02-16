@@ -9,7 +9,7 @@ class Quack
     static string $cachePath = "../cache/";
     static string $cacheMode = "dev";
     static string $templateDirectory = "../templates/";
-    static array $blockNameRegistry = ["content","title", "carotte"];
+    static array $blockRegistry = ["content","title"];
 
 
     static function view($file, $data = array()): void
@@ -32,9 +32,9 @@ class Quack
         }
 
         if (!file_exists($cacheFile) || file_get_contents($cacheFile) != file_get_contents(self::$templateDirectory.$file.".html.php")){
-            $content = self::includeFile($file);
-            $content = self::compileContent($content);
-            file_put_contents($cacheFile,$content);
+            $quackContent = self::includeFile($file);
+            $quackContent = self::compileContent($quackContent);
+            file_put_contents($cacheFile,$quackContent);
         }
 
         return $cacheFile;
@@ -44,109 +44,110 @@ class Quack
     static function includeFile($file): array|string|null
     {
         if ($file == "base"){
-            $content = file_get_contents(self::$templateDirectory.$file.".html.php");
+            $quackContent = file_get_contents(self::$templateDirectory.$file.".html.php");
         }else{
-            $content = file_get_contents(self::$templateDirectory.$file.".html.quack");
+            $quackContent = file_get_contents(self::$templateDirectory.$file.".html.quack");
         }
-        preg_match_all('/{% ?(extends|include) ?\'?(.*?)\'? ?%}/i', $content, $matches, PREG_SET_ORDER);
+        preg_match_all('/{% ?(extends|include) ?\'?(.*?)\'? ?%}/i', $quackContent, $matches, PREG_SET_ORDER);
         foreach ($matches as $match){
-            $content = str_replace($match[0], self::includeFile($match[2]), $content);
+            $quackContent = str_replace($match[0], self::includeFile($match[2]), $quackContent);
         }
-        return preg_replace('/{% ?(extends|include) ?\'?(.*?)\'? ?%}/i', '', $content);
+        return preg_replace('/{% ?(extends|include) ?\'?(.*?)\'? ?%}/i', '', $quackContent);
     }
 
-    static function compileContent($content): array|string{
-        $content = self::compileBlock($content);
-        $content = self::compileYield($content);
-        $content = self::compileEchos($content);
-        $content = self::compilePhp($content);
+    static function compileContent($quackContent): array|string{
+        $quackContent = self::compileBlock($quackContent);
+        $quackContent = self::compileYield($quackContent);
+        $quackContent = self::compileEchos($quackContent);
+        $quackContent = self::compilePhp($quackContent);
 
-        return $content;
+        return $quackContent;
     }
 
 
-    static function compileEchos($content): array|string|null{
-        return preg_replace('/{{\s*(.+?)\s*}}/', '<?= $1; ?>', $content);
+    static function compileEchos($quackContent): array|string|null{
+        return preg_replace('/{{\s*(.+?)\s*}}/', '<?= $1; ?>', $quackContent);
     }
 
-    static function compilePhp($content): array|string|null{
-        return preg_replace('/{%\s*(.+?)\s*%}/', '<?php $1 ?>', $content);
+    static function compilePhp($quackContent): array|string|null{
+        return preg_replace('/{%\s*(.+?)\s*%}/', '<?php $1 ?>', $quackContent);
     }
 
-    static function compileBlock($content): array|string
+
+    static function compileBlock($quackContent): array|string
     {
 
-          preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
+        preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $quackContent, $matches, PREG_SET_ORDER);
+        foreach ($matches as $match){
+            foreach ($match as $str){
+                $blockName = strstr($str, "k "); //gets all text from needle on
+                $blockName = strstr($blockName, " %}", true); //gets all text before needle
 
-         foreach ($matches as $value) {
-         if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
-         if (!str_contains($value[2], '@parent')) {
-         self::$blocks[$value[1]] = $value[2];
-         } else {
-         self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
-         }
-         $content = str_replace($value[0], '', $content);
-         }
+                die($blockName);
+                foreach (self::$blockRegistry as $registry)
+                    if ($blockName != $registry){
+                        throw new \Exception("Le block".$blockName."niet");
+                    }
+            }
+
+        }
+        die();
+
+        /**
+         * preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $quackContent, $matches, PREG_SET_ORDER);
+         * // var_dump("début",self::$blocks);
+         * foreach ($matches as $value) {
+         * if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
+         * if (!str_contains($value[2], '@parent')) {
+         * self::$blocks[$value[1]] = $value[2];
+         * } else {
+         * self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
+         * }
+         * $quackContent = str_replace($value[0], '', $quackContent);
+         * }
+         */
 
 
+          $quackContent = self::compileBlockTitle($quackContent);
+          $quackContent = self::compileBlockContent($quackContent);
 
-          //self::compileBlockContent($content);
-          //self::compileBlockTitle($content);
-
-        return $content;
+        return $quackContent;
     }
 
-    /**
-     * function compileBlockContent($content){
-     * preg_match_all('/{% ?block content ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
-     *
-     * foreach ($matches as $value) {
-     * if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
-     * if (!str_contains($value[2], '@parent')) {
-     * self::$blocks[$value[1]] = $value[2];
-     * } else {
-     * self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
-     * }
-     * $content = str_replace($value[0], '', $content);
-     * }
-     * return $content;
-     * }
-     *
-     * //registre des noms de blocks autorisés
-     *
-     * static function compileBlockTitle($content){
-     * preg_match_all('/{% ?block title ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
-     *
-     * foreach ($matches as $value) {
-     * if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
-     * if (!str_contains($value[2], '@parent')) {
-     * self::$blocks[$value[1]] = $value[2];
-     * } else {
-     * self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
-     * }
-     * $content = str_replace($value[0], '', $content);
-     * }
-     * return $content; preg_match_all('/{% ?block title ?%}(.*?){% ?endblock ?%}/is', $content, $matches, PREG_SET_ORDER);
-     * foreach ($matches as $value) {
-     * if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
-     * if (!str_contains($value[2], '@parent')) {
-     * self::$blocks[$value[1]] = $value[2];
-     * } else {
-     * self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
-     * }
-     * $content = str_replace($value[0], '', $content);
-     * }
-     * return $content;
-     * }
-     */
 
-    static function compileYield($content): array|string|null
+    static function compileBlockContent($quackContent){
+
+        preg_match('/{% ?block ?content ?%}(.*?){% ?endblock ?%}/is',$quackContent,$matches);
+        $content = preg_replace('/{% ?block ?content ?%}(.*?){% ?endblock ?%}/is','',$matches);
+        self::$blocks["content"] = $content[1];
+        $quackContent = str_replace($content[1],'',$quackContent);
+        $quackContent = preg_replace('/{% ?block ?content ?%}(.*?){% ?endblock ?%}/is','',$quackContent);
+        return $quackContent;
+    }
+
+
+    static function compileBlockTitle($quackContent){
+        preg_match('/{% ?block ?title ?%}(.*?){% ?endblock ?%}/is',$quackContent,$matches);
+        if ($matches){
+            $content = preg_replace('/{% ?block ?title ?%}(.*?){% ?endblock ?%}/is','',$matches);
+            self::$blocks["title"] = $content[1];
+            $quackContent = str_replace($content[1],'',$quackContent);
+            $quackContent = preg_replace('/{% ?block ?title ?%}(.*?){% ?endblock ?%}/is','',$quackContent);
+        }else{
+            self::$blocks["title"] = "Quack Quack";
+        }
+        return $quackContent;
+    }
+
+
+
+    static function compileYield($quackContent): array|string|null
     {
         foreach(self::$blocks as $block => $value) {
-            $content = preg_replace('/{% ?yield ?' . $block . ' ?%}/', $value, $content);
+            $quackContent = preg_replace('/{% ?yield ?' . $block . ' ?%}/', $value, $quackContent);
         }
-        $content = preg_replace('/{% ?yield ?(.*?) ?%}/i', '', $content);
-        return $content;
+        $quackContent = preg_replace('/{% ?yield ?(.*?) ?%}/i', '', $quackContent);
+        return $quackContent;
     }
 
 }

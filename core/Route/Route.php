@@ -8,6 +8,9 @@ class Route
     private string $uri;
     private string $controller;
     private string $method;
+    private string $name;
+    private array $methods;
+    private array $uriData = [];
 
     public function getUri(): string
     {
@@ -19,6 +22,15 @@ class Route
         $this->uri = $uri;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
     public function getController(): string
     {
         return $this->controller;
@@ -39,4 +51,23 @@ class Route
         $this->method = $method;
     }
 
+    public function getMethods(): array
+    {
+        return $this->methods;
+    }
+
+    public function setMethods(array $methods): void
+    {
+        $this->methods = $methods;
+    }
+
+    public function getUriData(): array
+    {
+        return $this->uriData;
+    }
+
+    public function setUriData(array $uriData): void
+    {
+        $this->uriData = $uriData;
+    }
 }

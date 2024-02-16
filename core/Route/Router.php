@@ -2,68 +2,125 @@
 
 namespace Core\Route;
 
-use Core\Controller\Controller;
+
 use Core\Http\Request;
-use ReflectionClass;
-use Core\Attributes\Route;
 
 class Router
 {
-
     /**
      * @var Route[]
      */
     private array $routes;
 
+    /**
+     * @throws \ReflectionException
+     */
+    public function __construct()
+    {
+        $controllerDirectory = __DIR__ . '/../../src/Controller';
 
-      public function addRoute(array $routes){
-      $this->routes[$routes["route"]] = $routes["c&m"];
-      }
+        $controllerFiles = scandir($controllerDirectory);
+        $controllerFiles = array_filter($controllerFiles, function ($file) {
+            return pathinfo($file, PATHINFO_EXTENSION) === 'php';
+        });
 
+        $controllerClasses = array_map(function ($file) {
+            return '\\App\\Controller\\' . pathinfo($file, PATHINFO_FILENAME);
+        }, $controllerFiles);
+
+        $this->routes = $this->getRoutes($controllerClasses);
+    }
 
     /**
-     * public function getRoutes():array{
-     *
-     * $reflection = new ReflectionClass(Controller::class);
-     * var_dump($reflection);
-     * $attributes = $reflection->getAttributes(Route::class);
-     * $arguments = $attributes[0]->getArguments();
-     * $uri = $arguments["uri"];
-     * // recup toutes les classes du namespace controller
-     * // foreach controller as controller
-     * // pour chaque controlleur il faut recup les attributs
-     * // voir dans le Abstract Repository
-     * // ReflectionClass et getAttributes(Route::class)
-     * // pour chaque attribut de classe route recup l'argument uri
-     * // recup attributs routes de tous les controlleurs
-     * // pour chaque attribut route créer un objet Route
-     * // lui donner l'uri depuis l'attribut et lui donner le controlleur
-     * // et la methode en cours d'iteration
-     * // quand la route est créer la passer à addRoute
-     *
-     *
-     * return [];
-     * }
+     * @param array $controllers
+     * @return array|Route[]|mixed
+     * @throws \ReflectionException
      */
+    public function getRoutes(array $controllers)
+    {
+        foreach ($controllers as $controller) {
+            $reflectionController = new \ReflectionClass($controller);
+            $methodsInController = $reflectionController->getMethods();
 
-    public function getControllerAndMethod(Request $request){
+            $parentClass = $reflectionController->getParentClass();
+            $methodsInAbstractController = $parentClass ? $parentClass->getMethods() : [];
 
-        $globals = $request->getGlobals();
-        $uri = $globals["REQUEST_URI"];
+            $methodsOnlyInControllerOnly = array_udiff(
+                $methodsInController,
+                $methodsInAbstractController,
+                function ($a, $b) {
+                    return strcmp($a->getName(), $b->getName());
+                }
+            );
 
+            foreach ($methodsOnlyInControllerOnly as $method) {
 
-        $controllerAndMethod= $this->getControllerAndMethodFromUri($uri);
+                $attributes = $method->getAttributes(\Core\Attributes\Route::class);
 
-        return $controllerAndMethod;
-    }
+                foreach ($attributes as $attribute) {
+                    $argument = $attribute->getArguments();
+                    $route = new Route();
+                    $route->setUri($argument['uri']);
+                    $route->setName($argument['name']);
+                    $route->setMethods(array_map('strtoupper', $argument['methods']));
+                    $route->setController($controller);
+                    $route->setMethod($method->getName());
 
-    private function getControllerAndMethodFromUri(string $uri){
-        foreach ($this->routes as $routeUri=>$controllerAndMethod){
-            if ($routeUri === $uri){
-                return $controllerAndMethod;
+                    $this->addRoute($route);
+                }
             }
         }
-        return false;
+        return $this->routes;
     }
 
+    /**
+     * @param $route
+     * @return void
+     */
+    public function addRoute($route)
+    {
+        $this->routes[] = $route;
+        //$this->routes[$route['route']] = $route['c&m'];
+    }
+
+    /**
+     * @param Request $request
+     * @return Route|mixed|null
+     */
+    public function getControllerAndMethod(Request $request)
+    {
+        $globals = $request->getGlobals();
+        $uri = $globals['REQUEST_URI'];
+
+        return $this->getControllerAndMethodFromUri($uri);
+    }
+
+    /**
+     * @param string $uri
+     * @return Route|mixed|null
+     */
+    private function getControllerAndMethodFromUri(string $uri)
+    {
+        foreach ($this->routes as $route) {
+            $pattern = $this->buildRoutePattern($route->getUri());
+
+            if (preg_match($pattern, $uri, $matches)) {
+                $route->setUriData(array_slice($matches, 1));
+
+                return $route;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param string $uri
+     * @return string
+     */
+    private function buildRoutePattern(string $uri): string
+    {
+        $pattern = preg_replace('/{(\w+)}/', '(\w+)', $uri);
+
+        return '/^' . str_replace('/', '\/', $pattern) . '$/';
+    }
 }

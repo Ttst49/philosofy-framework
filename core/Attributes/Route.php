@@ -2,15 +2,19 @@
 
 namespace Core\Attributes;
 
-use Attribute;
-
-#[Attribute]
+#[\Attribute]
 class Route
 {
     private string $uri;
 
-    public function __construct(string $uri)
+    private string $name;
+
+    private array $methods;
+
+    public function __construct(string $uri, string $name, array $methods)
     {
         $this->uri = $uri;
+        $this->name = $name;
+        $this->methods = $methods;
     }
 }

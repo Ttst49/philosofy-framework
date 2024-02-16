@@ -2,46 +2,38 @@
 
 namespace App\Controller;
 
-use App\Entity\Pizza;
-use App\Repository\PizzaRepository;
 use Core\Attributes\Route;
-use Core\Http\Request;
+use Core\Controller\Controller;
 use Core\Http\Response;
-use Core\View\View;
-use Exception;
-use ReflectionException;
+use Core\HttpClient\HttpClient;
 
-class HomeController extends \Core\Controller\Controller
+class HomeController extends Controller
 {
-
-    #[Route(uri: "/home")]
+    #[Route(uri: "/", name: "app_home_index", methods: ["GET"])]
     public function index():Response
     {
+        $client = new HttpClient('https://jsonplaceholder.typicode.com');
 
-        return $this->render("home/index", $data=
-            ["title"=>"Je suis le titre",
-            "name"=>"tibo",
-            "fruits"=>["banane","poire","abricot"
-            ]]
-        );
+        $response = $client->get('/posts');
+        //$response = $client->post('/posts');
+        //$response = $client->put('/posts/1');
+        //$response = $client->patch('/posts/1');
+        //$response = $client->delete('/posts/1');
 
+        return $this->json($response);
 
-        /**
-         * return $this->oldRender("home/index", [
-         * "pageTitle"=> "Welcome to the framework"
-         * ]);
-         */
+        //  return $this->render("home/index", [
+        //            "pageTitle"=> "Welcome to /home",
+        //            "data"=>$response
+        //        ]);
     }
 
-    #[Route(uri: "/home/show")]
-    public function show():Response{
-
-
-
-        return $this->render("home/show",[]);
+    #[Route(uri: "/home/show/{id}", name: "app_home_show", methods: ["GET", "POST"])]
+    public function show(int $id):Response
+    {
+        //echo($id);
+        return $this->render("home/index", [
+            "pageTitle"=> "Welcome to /home/show"
+        ]);
     }
-
-
-
-
 }

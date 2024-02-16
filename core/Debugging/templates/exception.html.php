@@ -1,12 +1,6 @@
-<div
-    style="
-background-color: olivedrab;
-"
->
-    <p>Exception : <?= $exception->getCode() ?></p>
-    <p>Message : <?= $exception->getMessage() ?></p>
-    <p>Line : <?= $exception->getLine() ?></p>
-    <p>File : <?= $exception->getFile() ?></p>
-
-
+<div style="background-color: olivedrab;height: 40vh;padding: 1em;margin: 0;">
+    <p><strong>Exception</strong> : <?= $exception->getCode() ?></p>
+    <p><strong>Message</strong> : <?= $exception->getMessage() ?></p>
+    <p><strong>Line</strong> : <?= $exception->getLine() ?></p>
+    <p><strong>File</strong> : <?= $exception->getFile() ?></p>
 </div>

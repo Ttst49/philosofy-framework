@@ -12,14 +12,17 @@
             padding: 0;
         }
         .nav-debug{
-            background-color: red;
-            height: 13vh;
+            color: white;
+            padding-left: 1em;
+            background-color: #640505;
+            height: 15vh;
         }
     </style>
 </head>
 <body>
 <div class="nav-debug">
-    <h2>Debugger</h2>
+    <h1>Debugger</h1>
+    <h3>Something is wrong</h3>
 </div>
 
 <?= $content ?>

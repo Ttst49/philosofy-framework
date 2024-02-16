@@ -1,0 +1,336 @@
+EXCEPTION
+2024/02/16 21:25:51
+/home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
+line : 44
+Call to undefined function Core\Http\yaml_parse_file()0
+
+EXCEPTION
+2024/02/16 21:21:46
+/home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
+line : 44
+Call to undefined function Core\Http\yaml_parse_file()0
+
+EXCEPTION
+2024/02/16 21:21:34
+/home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
+line : 44
+Call to undefined function yaml_parse_file()0
+
+EXCEPTION
+2024/02/16 21:21:31
+/home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
+line : 44
+Call to undefined function yaml_parse_file()0
+
+EXCEPTION
+2024/02/16 21:20:56
+/home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
+line : 44
+Call to undefined function yaml_parse_file()0
+
+EXCEPTION
+2024/02/16 21:20:54
+/home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
+line : 44
+Call to undefined function yaml_parse_file()0
+
+EXCEPTION
+2024/02/16 21:19:39
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:38
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:38
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:38
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:38
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:38
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:38
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:19:20
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:18:59
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:18:29
+/home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
+line : 50
+Call to a member function getMethods() on null0
+
+EXCEPTION
+2024/02/16 21:18:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 92
+Call to undefined method Core\Http\Request::getGobals()0
+
+EXCEPTION
+2024/02/16 21:16:08
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:16:06
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:16:06
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:16:06
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:15:22
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 31
+Cannot assign true to property Core\Route\Router::$routes of type array0
+
+EXCEPTION
+2024/02/16 21:15:03
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:15:00
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:14:28
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 73
+Typed property Core\Route\Router::$routes must not be accessed before initialization0
+
+EXCEPTION
+2024/02/16 21:13:08
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:13:07
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:13:06
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:11:36
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:11:35
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:11:35
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:11:35
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:11:35
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:11:34
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:09:45
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:09:27
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:09:09
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 21:05:01
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:02:05
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:02:05
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:29
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:25
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:25
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:14
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:01:12
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:00:46
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 12:00:40
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 11:59:56
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 11:58:34
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 11:56:00
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 11:56:00
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+
+EXCEPTION
+2024/02/16 11:56:00
+/home/ubuntu/Documents/phpProjects/philosofy/core/Attributes/Route.php
+line : 14
+Too few arguments to function Core\Attributes\Route::__construct(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php on line 62 and exactly 3 expected0
+

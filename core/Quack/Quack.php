@@ -40,6 +40,7 @@ class Quack
         return $cacheFile;
     }
 
+
     static function includeFile($file): array|string|null
     {
         if ($file == "base"){

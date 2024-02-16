@@ -1,0 +1,7 @@
+autowiring : true
+
+session : active
+
+quack-globals:
+  session : 'Core\Session\Session'
+  panier: "App\Service\PanierService"

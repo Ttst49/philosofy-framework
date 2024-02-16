@@ -1,0 +1,8 @@
+homepage: app_home
+
+
+some_route :
+  url : "/bidule/truc"
+  methods: ["GET", "POST"]
+  resolve: HomeController::class, index
+  clone: app_home

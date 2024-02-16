@@ -1,6 +1,9 @@
 {% extends base %}
 
-{% block title %} {{ $title }} {% endblock %}
+
+{% block title %} un titre {% endblock %}
+
+
 
 {% block content %}
     <h2>Bienvenue dans le framework</h2>

@@ -60,30 +60,61 @@ function addProperty($properties)
         return $properties;
     }
     $propertyType = readline("What is the type of your property ? \n");
+    $propertyType = checkType($propertyType);
     print_r("\n");
     $properties [] = array(
-            "name"=>$propertyName,
-            "type"=>$propertyType
+        "name"=>$propertyName,
+        "type"=>$propertyType
     );
     return addProperty($properties);
 }
+
+function checkType($propertyType)
+{
+    $defaultPropertyTypes = ["int", "string", "array"];
+    if (in_array($propertyType, $defaultPropertyTypes)){
+        return $propertyType;
+    }
+    $NewPropertyType = readline("Wrong type given try another one : ");
+    return checkType($NewPropertyType);
+}
+
 function makeEntityFile($entityName, $tableName, $properties): void
 {
     $returnedProperties = "";
+    $methodsProperties = "";
     if ( !file_exists( "src/Entity" ) && !is_dir( "src/Entity" ) ) {
         mkdir( "src/Entity" );
     }
     if ($properties)
     {
         foreach ($properties as $property) {
-            $content =
+            $propertyNameCap = ucfirst($property["name"]);
+            $content1 =
                 "
     #[Column(name: '${property["name"]}')]
     private ?${property["type"]} $${property["name"]} = null;          
             ";
-            $returnedProperties = $returnedProperties.$content;
+            $returnedProperties = $returnedProperties.$content1;
+
+            $content2 =
+                "
+    public function get${propertyNameCap}(): ?${property["type"]}
+    {
+        return \$this->${property["name"]};
+    }
+    
+    public function set${propertyNameCap}(?${property["type"]} $${property["name"]}): static
+    {
+        \$this->${property["name"]} = $${property["name"]};
+        
+        return \$this;
+    }
+                ";
+            $methodsProperties = $methodsProperties.$content2;
         }
     }
+
 
 
     $entityName = ucfirst($entityName);
@@ -92,33 +123,55 @@ function makeEntityFile($entityName, $tableName, $properties): void
 
     $entityContent =
         "<?php
-\n
+
 namespace App\Entity;
-\n
+
 use App\Repository\\$repoName;
 use Core\Attributes\Column;
 use Core\Attributes\Table;
 use Core\Attributes\TargetRepository;
-\n
+
 #[Table(name:'$tableName')]
 #[TargetRepository(name:$repoName::class)]
 class $entityName
 {
     #[Column(name: 'id')]
     private ?int \$id = null;
-    
     $returnedProperties
     
     public function getId(): ?int
     {
         return \$this->id;
     }
-}
-";
+    $methodsProperties
+}";
 
-    $entityFile = fopen("src/Entity/${entityName}.php", "w");
-    fwrite($entityFile,$entityContent);
-    fclose($entityFile);
+    if (file_exists("src/Entity/${entityName}.php"))
+    {
+        function stringBetweenTwoStrings($str, $starting_word, $ending_word)
+        {
+            $subtring_start = strpos($str, $starting_word);
+            $subtring_start += strlen($starting_word);
+            $size = strpos($str, $ending_word, $subtring_start) - $subtring_start;
+            return substr($str, $subtring_start, $size);
+        }
+
+        $fileContent = file_get_contents("src/Entity/${entityName}.php");
+        $substring = stringBetweenTwoStrings($fileContent, 'id = null;', 'public function getId');
+        $startContent = substr($fileContent, 0, strpos($fileContent, "id = null;"))."id = null;";
+        $newFileContent = $startContent.$substring.$returnedProperties."\n\n";
+        $endFileFirstStep = str_replace($startContent, "", $fileContent);
+        $endFile = str_replace($substring, "", $endFileFirstStep);
+        $newFileContent = $newFileContent.$endFile;
+        //$addMethods = str_replace(substr($newFileContent, -1),"", $newFileContent);
+        //$addMethods = $addMethods.$methodsProperties;
+        //$newFileContent = $newFileContent.$addMethods."}";
+        file_put_contents("src/Entity/${entityName}.php", $newFileContent);
+    } else {
+        $entityFile = fopen("src/Entity/${entityName}.php", "w");
+        fwrite($entityFile,$entityContent);
+        fclose($entityFile);
+    }
 
 
     if ( !file_exists( "src/Repository" ) && !is_dir( "src/Repository" ) ) {

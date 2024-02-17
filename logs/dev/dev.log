@@ -1,4 +1,64 @@
 EXCEPTION
+2024/02/17 09:47:27
+/home/ubuntu/Documents/phpProjects/philosofy/src/Controller/HomeController.php
+line : 41
+Too few arguments to function App\Controller\HomeController::showQuack(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php on line 61 and exactly 1 expected0
+
+ERROR
+2024/02/17 09:47:21
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+ERROR
+2024/02/17 09:47:21
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+ERROR
+2024/02/17 09:47:19
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+ERROR
+2024/02/17 09:45:50
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+ERROR
+2024/02/17 09:45:49
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+ERROR
+2024/02/17 09:45:49
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+ERROR
+2024/02/17 09:45:25
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/index.html.php
+line : 35
+Undefined variable $name
+
+EXCEPTION
+2024/02/17 09:44:44
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 89
+Le block title n'est pas conforme0
+
+EXCEPTION
+2024/02/17 09:40:11
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 89
+Le block titlen'est pas conforme0
+
+EXCEPTION
 2024/02/16 21:25:51
 /home/ubuntu/Documents/phpProjects/philosofy/core/Http/Response.php
 line : 44

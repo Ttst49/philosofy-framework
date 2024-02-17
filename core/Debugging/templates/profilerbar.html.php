@@ -2,8 +2,9 @@
         style="
     color: white;
 background-color: #363535;
-position: absolute;
+position: fixed;
 bottom :0;
+left: 0;
 width: 100vw;
 height:5vh;
 display: flex;

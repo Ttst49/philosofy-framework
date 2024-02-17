@@ -9,7 +9,7 @@ class Quack
     static string $cachePath = "../cache/";
     static string $cacheMode = "dev";
     static string $templateDirectory = "../templates/";
-    static array $blockRegistry = ["content","title"];
+    static array $blockRegistry = ["content","title",""];
 
 
     static function view($file, $data = array()): void
@@ -82,17 +82,19 @@ class Quack
             foreach ($match as $str){
                 $blockName = strstr($str, "k "); //gets all text from needle on
                 $blockName = strstr($blockName, " %}", true); //gets all text before needle
-                $blockName = strstr($blockName," ");
+                $blockName = substr($blockName,1);
+                $blockName = trim($blockName);
 
 
-                if (in_array($blockName,self::$blockRegistry)){
-                    throw new \Exception("Le block".$blockName." n'est pas conforme");
-                }
+            if (!in_array($blockName,self::$blockRegistry)){
+                throw new \Exception("Le block ".$blockName." n'est pas conforme");
             }
 
+            }
         }
 
-        /**
+
+        /*
          * preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $quackContent, $matches, PREG_SET_ORDER);
          * // var_dump("début",self::$blocks);
          * foreach ($matches as $value) {

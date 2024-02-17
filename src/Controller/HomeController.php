@@ -36,4 +36,15 @@ class HomeController extends Controller
             "pageTitle"=> "Welcome to /home/show"
         ]);
     }
+
+    #[Route(uri: "/home/testQuack", name: "app_home_test", methods: ["GET", "POST"])]
+    public function showQuack():Response
+    {
+        //echo($id);
+        return $this->render("home/index", [
+            "pageTitle"=> "Welcome to /home/show",
+            "name"=>"Jack",
+            "fruits"=>["banane","poire","pomme"]
+        ]);
+    }
 }

@@ -93,22 +93,6 @@ class Quack
             }
         }
 
-
-        /*
-         * preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $quackContent, $matches, PREG_SET_ORDER);
-         * // var_dump("début",self::$blocks);
-         * foreach ($matches as $value) {
-         * if (!array_key_exists($value[1], self::$blocks)) self::$blocks[$value[1]] = '';
-         * if (!str_contains($value[2], '@parent')) {
-         * self::$blocks[$value[1]] = $value[2];
-         * } else {
-         * self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
-         * }
-         * $quackContent = str_replace($value[0], '', $quackContent);
-         * }
-         */
-
-
           $quackContent = self::compileBlockTitle($quackContent);
           $quackContent = self::compileBlockContent($quackContent);
 

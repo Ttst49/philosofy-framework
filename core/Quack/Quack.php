@@ -82,16 +82,15 @@ class Quack
             foreach ($match as $str){
                 $blockName = strstr($str, "k "); //gets all text from needle on
                 $blockName = strstr($blockName, " %}", true); //gets all text before needle
+                $blockName = strstr($blockName," ");
 
-                die($blockName);
-                foreach (self::$blockRegistry as $registry)
-                    if ($blockName != $registry){
-                        throw new \Exception("Le block".$blockName."niet");
-                    }
+
+                if (in_array($blockName,self::$blockRegistry)){
+                    throw new \Exception("Le block".$blockName." n'est pas conforme");
+                }
             }
 
         }
-        die();
 
         /**
          * preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $quackContent, $matches, PREG_SET_ORDER);

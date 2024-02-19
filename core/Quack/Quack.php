@@ -31,7 +31,7 @@ class Quack
             mkdir(self::$cachePath.$directoryName);
         }
 
-        if (!file_exists($cacheFile) || file_get_contents($cacheFile) != file_get_contents(self::$templateDirectory.$file.".html.php")){
+        if (!file_exists($cacheFile) || file_get_contents($cacheFile) != file_get_contents(self::$templateDirectory.$file.".html.quack")){
             $quackContent = self::includeFile($file);
             $quackContent = self::compileContent($quackContent);
             file_put_contents($cacheFile,$quackContent);
@@ -59,6 +59,7 @@ class Quack
         $quackContent = self::compileBlock($quackContent);
         $quackContent = self::compileYield($quackContent);
         $quackContent = self::compileEchos($quackContent);
+        $quackContent = self::compileLoop($quackContent);
         $quackContent = self::compilePhp($quackContent);
 
         return $quackContent;
@@ -66,12 +67,17 @@ class Quack
 
 
     static function compileEchos($quackContent): array|string|null{
-        return preg_replace('/{{\s*(.+?)\s*}}/', '<?= $1; ?>', $quackContent);
+        return preg_replace('/{{\s*(.+?)\s*}}/', '<?= $$1; ?>', $quackContent);
+    }
+
+    static function compileLoop($quackContent): array|string|null{
+        return preg_replace('/{%\s*for (.+?) in (.+?)\s*%}/', '<?php foreach ($$2 as $$1): ?>', $quackContent);
     }
 
     static function compilePhp($quackContent): array|string|null{
         return preg_replace('/{%\s*(.+?)\s*%}/', '<?php $1 ?>', $quackContent);
     }
+
 
 
     static function compileBlock($quackContent): array|string

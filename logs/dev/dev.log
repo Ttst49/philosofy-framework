@@ -1,4 +1,232 @@
 EXCEPTION
+2024/02/19 09:24:19
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 62
+syntax error, unexpected end of file0
+
+EXCEPTION
+2024/02/19 09:23:39
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 62
+syntax error, unexpected end of file0
+
+EXCEPTION
+2024/02/19 09:23:20
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 35
+Undefined constant "name"0
+
+ERROR
+2024/02/19 09:20:48
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:19:09
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:18:37
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 50
+file_get_contents(../templates/base.html.quack): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:17:45
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 49
+file_get_contents(../templates/base.html.quack): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:17:45
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 49
+file_get_contents(../templates/base.html.quack): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:17:44
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 49
+file_get_contents(../templates/base.html.quack): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:56
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:56
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:56
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:56
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:55
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:55
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:55
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:55
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:55
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:55
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:53
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:16:51
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:15:17
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:15:16
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:15:01
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:14:29
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+EXCEPTION
+2024/02/19 09:13:21
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 36
+syntax error, unexpected token ")", expecting "->" or "?->" or "{" or "["0
+
+ERROR
+2024/02/19 09:12:19
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+EXCEPTION
+2024/02/19 09:10:25
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 36
+syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "["0
+
+ERROR
+2024/02/19 09:09:54
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 49
+file_get_contents(../templates/base.html.quack): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:09:22
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:09:21
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:09:21
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:09:12
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/caro.html.php): Failed to open stream: No such file or directory
+
+EXCEPTION
+2024/02/19 09:07:16
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 36
+syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "["0
+
+ERROR
+2024/02/19 09:06:02
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/test.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:06:02
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/test.html.php): Failed to open stream: No such file or directory
+
+ERROR
+2024/02/19 09:05:40
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 34
+file_get_contents(../templates/home/test.html.php): Failed to open stream: No such file or directory
+
+EXCEPTION
+2024/02/19 09:05:06
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/test.html.php
+line : 36
+syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "["0
+
+EXCEPTION
 2024/02/17 12:26:20
 /home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
 line : 50

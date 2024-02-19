@@ -1,9 +1,36 @@
 #!/usr/bin/env php
 <?php
 
-if($argv[1]==="serve")
-{
-    shell_exec("php -S localhost:8080 -t public");
+require_once "vendor/autoload.php";
+use Core\Environment\DotEnv;
+
+if($argv[1] == "serve"){
+    $dotEnv = new DotEnv();
+
+    $environment = $dotEnv->getVariable("ENVIRONMENT");
+
+    if($environment == "prod") {
+        print_r("\n");
+        print_r("Your server started at http:localhost:8080");
+        print_r("\n");
+        shell_exec("php -S localhost:8080 -t public");
+
+    }
+
+    if($environment == "dev") {
+        print_r("\n");
+
+        print_r("\n");
+        print_r("Your profiler started at http:localhost:4372");
+        print_r("\n");
+        $pid = shell_exec("php -S localhost:4372 -t core/Debugging/profiler > /dev/null &");
+        print_r("Your development server started at http:localhost:8080");
+        shell_exec("php -S localhost:8080 -t public");
+
+
+    }
+    print_r("\n");
+    print_r("blah.");
 }
 
 if($argv[1]==="make:entity")

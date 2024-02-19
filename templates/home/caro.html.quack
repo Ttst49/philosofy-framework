@@ -1,0 +1,25 @@
+{% extends base %}
+
+
+{% block title %} un titre {% endblock %}
+
+{% block content %}
+    <h2>Bienvenue dans le framework</h2>
+    <p>Bonjour {{ name }}</p>
+    {% for fruit in fruits %}
+        <p>Le fruit est {{ fruit }}</p>
+    {% endforeach %}
+
+    <form method="post" action="#">
+        <label for="name"><strong>Name</strong></label>
+        <input class="form-control" type="text" name="name" id="name">
+        <label for="description"><strong>Description</strong></label>
+        <input class="form-control" type="text" name="description" id="description">
+        <label for="price"><strong>Price</strong></label>
+        <input class="form-control" type="number" name="price" id="price">
+
+        <button style="margin: 20px" class="btn btn-success" type="submit">
+            OK CHEF
+        </button>
+    </form>
+{% endblock %}

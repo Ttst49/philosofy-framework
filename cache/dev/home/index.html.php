@@ -33,7 +33,7 @@
 
     <h2>Bienvenue dans le framework</h2>
     <p>Bonjour <?= $name; ?></p>
-    <?php foreach($fruits as $fruit): ?>
+    <?php foreach($fruits as $fruit): ?> for fruit in fruits
         <p>Le fruit est <?= $fruit; ?></p>
     <?php endforeach ?>
 

@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function showQuack():Response
     {
         //echo($id);
-        return $this->render("home/index", [
+        return $this->render("home/caro", [
             "pageTitle"=> "Welcome to /home/show",
             "name"=>"Jack",
             "fruits"=>["banane","thibo","pomme"]

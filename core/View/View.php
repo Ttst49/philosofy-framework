@@ -28,21 +28,6 @@ class View
 
      public static function render($viewName,$data): void
      {
-         /**
-         $viewPath = "../templates/";
-         $cachePath = "../cache/";
-         extract($data);
-         $content = file_get_contents($viewPath . $viewName . ".html.quack");
-         $content = preg_replace('/{{\s*(.+?)\s*}}/', '<?= $1; ?>', $content);
-         $content = preg_replace('/{%\s*(.+?)\s*%}/', '<?php $1 ?>', $content);
-         $cacheFile = $cachePath.$viewName.".html.php";
-         $directoryName = strtok($viewName, '/');
-         mkdir($cachePath.$directoryName);
-         file_put_contents($cacheFile,$content);
-         //require_once "../templates/base.html.php";
-         require $cacheFile;
-
-          **/
          Quack::view($viewName,$data);
      }
 

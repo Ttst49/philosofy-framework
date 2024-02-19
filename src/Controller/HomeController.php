@@ -44,7 +44,7 @@ class HomeController extends Controller
         return $this->render("home/index", [
             "pageTitle"=> "Welcome to /home/show",
             "name"=>"Jack",
-            "fruits"=>["banane","poire","pomme"]
+            "fruits"=>["banane","thibo","pomme"]
         ]);
     }
 }

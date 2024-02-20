@@ -2,6 +2,9 @@
 
 namespace Core\Quack;
 
+use Core\Route\Route;
+use Core\Route\Router;
+
 class Quack
 {
 
@@ -33,7 +36,7 @@ class Quack
 
         if (!file_exists($cacheFile) || file_get_contents($cacheFile) != file_get_contents(self::$templateDirectory.$file.".html.quack")){
             $quackContent = self::includeFile($file);
-            $quackContent = self::compileContent($quackContent);
+            $quackContent = self::parseContent($quackContent);
             file_put_contents($cacheFile,$quackContent);
         }
 
@@ -55,32 +58,62 @@ class Quack
         return preg_replace('/{% ?(extends|include) ?\'?(.*?)\'? ?%}/i', '', $quackContent);
     }
 
-    static function compileContent($quackContent): array|string{
-        $quackContent = self::compileBlock($quackContent);
-        $quackContent = self::compileYield($quackContent);
-        $quackContent = self::compileEchos($quackContent);
-        $quackContent = self::compileLoop($quackContent);
-        $quackContent = self::compilePhp($quackContent);
+    static function parseContent($quackContent): array|string{
+        $quackContent = self::parsePath($quackContent);
+        $quackContent = self::parseBlock($quackContent);
+        $quackContent = self::parseYield($quackContent);
+        $quackContent = self::parseEchos($quackContent);
+        $quackContent = self::parseLoop($quackContent);
+        $quackContent = self::parseEnd($quackContent);
+        $quackContent = self::parsePhp($quackContent);
+
 
         return $quackContent;
     }
 
+    /**
+     * get routes in class route
+     * foreach inside associe name avec uri
+     */
 
-    static function compileEchos($quackContent): array|string|null{
+    static function parsePath($quackContent){
+        preg_match_all('/{{\s* path(.+?) \s*}}/',$quackContent,$matches);
+
+        $matches[1][0] = substr($matches[1][0],2);
+        $matches[1][0] = strstr($matches[1][0],')',true);
+
+
+        die($matches[1][0]);
+            $route = new Router();
+            $route = $route->findByName($matches[1]);
+            var_dump($route);
+
+
+        die();
+        return true;
+    }
+
+
+
+    static function parseEchos($quackContent): array|string|null{
         return preg_replace('/{{\s*(.+?)\s*}}/', '<?= $$1; ?>', $quackContent);
     }
 
-    static function compileLoop($quackContent): array|string|null{
+    static function parseLoop($quackContent): array|string|null{
         return preg_replace('/{%\s*for (.+?) in (.+?)\s*%}/', '<?php foreach ($$2 as $$1): ?>', $quackContent);
     }
 
-    static function compilePhp($quackContent): array|string|null{
+    static function parseEnd($quackContent): array|string|null{
+        return preg_replace('/{%\s* endfor *%}/', '<?php endforeach ?>', $quackContent);
+    }
+
+    static function parsePhp($quackContent): array|string|null{
         return preg_replace('/{%\s*(.+?)\s*%}/', '<?php $1 ?>', $quackContent);
     }
 
 
 
-    static function compileBlock($quackContent): array|string
+    static function parseBlock($quackContent): array|string
     {
 
         preg_match_all('/{% ?block ?(.*?) ?%}(.*?){% ?endblock ?%}/is', $quackContent, $matches, PREG_SET_ORDER);
@@ -99,14 +132,14 @@ class Quack
             }
         }
 
-          $quackContent = self::compileBlockTitle($quackContent);
-          $quackContent = self::compileBlockContent($quackContent);
+          $quackContent = self::parseBlockTitle($quackContent);
+          $quackContent = self::parseBlockContent($quackContent);
 
         return $quackContent;
     }
 
 
-    static function compileBlockContent($quackContent){
+    static function parseBlockContent($quackContent){
 
         preg_match('/{% ?block ?content ?%}(.*?){% ?endblock ?%}/is',$quackContent,$matches);
         $content = preg_replace('/{% ?block ?content ?%}(.*?){% ?endblock ?%}/is','',$matches);
@@ -117,7 +150,7 @@ class Quack
     }
 
 
-    static function compileBlockTitle($quackContent){
+    static function parseBlockTitle($quackContent){
         preg_match('/{% ?block ?title ?%}(.*?){% ?endblock ?%}/is',$quackContent,$matches);
         if ($matches){
             $content = preg_replace('/{% ?block ?title ?%}(.*?){% ?endblock ?%}/is','',$matches);
@@ -132,7 +165,7 @@ class Quack
 
 
 
-    static function compileYield($quackContent): array|string|null
+    static function parseYield($quackContent): array|string|null
     {
         foreach(self::$blocks as $block => $value) {
             $quackContent = preg_replace('/{% ?yield ?' . $block . ' ?%}/', $value, $quackContent);

@@ -44,7 +44,7 @@
         <input class="form-control" type="text" name="description" id="description">
         <label for="price"><strong>Price</strong></label>
         <input class="form-control" type="number" name="price" id="price">
-
+        <?= $path("app_home_index"); ?>
         <button style="margin: 20px" class="btn btn-success" type="submit">
             OK CHEF
         </button>

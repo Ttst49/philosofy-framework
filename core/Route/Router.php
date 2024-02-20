@@ -123,4 +123,18 @@ class Router
 
         return '/^' . str_replace('/', '\/', $pattern) . '$/';
     }
+
+    public function showAllRoutes(){
+        return $this->routes;
+    }
+
+    public function findByName($name){
+        $routes = $this->showAllRoutes();
+        foreach ($routes as $route){
+            if ($name === $route->getName()){
+                return $route;
+            }
+        }
+        return "une route";
+    }
 }

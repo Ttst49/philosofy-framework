@@ -1,4 +1,184 @@
 EXCEPTION
+2024/02/19 11:02:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 84
+syntax error, unexpected integer "1", expecting ")"0
+
+EXCEPTION
+2024/02/19 10:58:01
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 82
+substr(): Argument #1 ($string) must be of type string, array given0
+
+ERROR
+2024/02/19 10:56:54
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 84
+Undefined array key 2
+
+EXCEPTION
+2024/02/19 10:51:41
+/home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
+line : 50
+Call to a member function getMethods() on null0
+
+ERROR
+2024/02/19 10:50:16
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 81
+Undefined array key 0
+
+ERROR
+2024/02/19 10:46:49
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:49
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:49
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:49
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:49
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:48
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:48
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:48
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:47
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+ERROR
+2024/02/19 10:46:47
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 80
+preg_match(): No ending delimiter '/' found
+
+EXCEPTION
+2024/02/19 10:37:24
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 83
+Object of class Core\Route\Route could not be converted to string0
+
+EXCEPTION
+2024/02/19 10:28:35
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 84
+Cannot use object of type Core\Route\Route as array0
+
+EXCEPTION
+2024/02/19 10:27:19
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 84
+Cannot use object of type Core\Route\Route as array0
+
+EXCEPTION
+2024/02/19 10:26:59
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 84
+Cannot use object of type Core\Route\Route as array0
+
+EXCEPTION
+2024/02/19 10:26:08
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 86
+preg_match(): Argument #4 ($flags) must be a PREG_* constant0
+
+EXCEPTION
+2024/02/19 10:26:07
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 86
+preg_match(): Argument #4 ($flags) must be a PREG_* constant0
+
+ERROR
+2024/02/19 10:23:59
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 87
+Undefined array key 0
+
+ERROR
+2024/02/19 10:23:59
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 87
+Undefined array key 0
+
+ERROR
+2024/02/19 10:23:58
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 87
+Undefined array key 0
+
+ERROR
+2024/02/19 10:23:13
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 89
+Undefined array key 1
+
+ERROR
+2024/02/19 10:21:40
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 47
+Undefined variable $path
+
+EXCEPTION
+2024/02/19 10:13:30
+/home/ubuntu/Documents/phpProjects/philosofy/core/Route/Router.php
+line : 39
+Too few arguments to function Core\Route\Router::getRoutes(), 0 passed in /home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php on line 81 and exactly 1 expected0
+
+EXCEPTION
+2024/02/19 09:33:38
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 38
+syntax error, unexpected token "endfor"0
+
+EXCEPTION
+2024/02/19 09:33:36
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 38
+syntax error, unexpected token "endfor"0
+
+EXCEPTION
+2024/02/19 09:32:07
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 38
+syntax error, unexpected token "endfor"0
+
+EXCEPTION
 2024/02/19 09:24:19
 /home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
 line : 62

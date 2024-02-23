@@ -1,3 +1,57 @@
+ERROR
+2024/02/23 09:41:33
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 37
+Undefined variable $fruit
+
+EXCEPTION
+2024/02/23 09:41:16
+/home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
+line : 50
+Call to a member function getMethods() on null0
+
+EXCEPTION
+2024/02/23 09:33:33
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Call to undefined function duuug()0
+
+ERROR
+2024/02/23 08:58:39
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Undefined variable $path
+
+ERROR
+2024/02/23 08:57:38
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Undefined variable $path
+
+ERROR
+2024/02/23 08:55:56
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Undefined variable $path
+
+ERROR
+2024/02/23 08:55:11
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Undefined variable $path
+
+EXCEPTION
+2024/02/23 08:50:23
+/home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
+line : 50
+Call to a member function getMethods() on null0
+
+ERROR
+2024/02/23 08:47:09
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Undefined variable $path
+
 EXCEPTION
 2024/02/19 11:02:13
 /home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php

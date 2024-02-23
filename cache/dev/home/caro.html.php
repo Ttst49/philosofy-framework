@@ -33,11 +33,15 @@
 
     <h2>Bienvenue dans le framework</h2>
     <p>Bonjour <?= $name; ?></p>
-    {% for fruit in fruits %}
+    <?php foreach ($fruits as $fruit): ?>
         <p>Le fruit est <?= $fruit; ?></p>
-    {% endfor %}
+    <?php endforeach ?>
 
-    <?= $path("app_home_index"); ?>
+    <a href="/home/show/{id}">banane</a>
+    <a href="/">Coucou</a>
+
+
+
 
     <form method="post" action="#">
         <label for="name"><strong>Name</strong></label>

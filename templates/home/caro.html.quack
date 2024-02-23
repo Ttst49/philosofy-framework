@@ -10,7 +10,11 @@
         <p>Le fruit est {{ fruit }}</p>
     {% endfor %}
 
-    {{ path("app_home_index") }}
+    <a href={{ path("app_home_show") }}>banane</a>
+    <a href={{ path("app_home_index") }}>Coucou</a>
+
+
+
 
     <form method="post" action="#">
         <label for="name"><strong>Name</strong></label>

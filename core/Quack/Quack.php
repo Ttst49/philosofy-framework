@@ -63,7 +63,6 @@ class Quack
         $quackContent = self::parseBlock($quackContent);
         $quackContent = self::parseYield($quackContent);
         $quackContent = self::parseEchos($quackContent);
-        return $quackContent;
         $quackContent = self::parseLoop($quackContent);
         $quackContent = self::parseEnd($quackContent);
         $quackContent = self::parsePhp($quackContent);
@@ -80,15 +79,18 @@ class Quack
     static function parsePath($quackContent){
         preg_match_all('/{{\s* path(.+?) \s*}}/',$quackContent,$matches);
 
-        $matches[1][0] = substr($matches[1][0],2);
-        $matches[1][0] = strstr($matches[1][0],'"',true);
 
+
+        for ($i=0;$i<count($matches);$i++){
+            $matches[1][$i] = substr($matches[1][$i],2);
+            $matches[1][$i] = strstr($matches[1][$i],'"',true);
 
             $route = new Router();
-            $route = $route->findByName($matches[1][0]);
-            if ($route){
-                preg_replace('/{{\s* path(.+?) \s*}}/','<a href='.$route->getUri().'/>',$quackContent);
-            }
+            $route = $route->findByName($matches[1][$i]);
+              if ($route){
+                $quackContent = preg_replace('/{{\s* path(.+?) \s*}}/','"'.$route->getUri().'"',$quackContent,1);
+              }
+        }
 
         return $quackContent;
     }

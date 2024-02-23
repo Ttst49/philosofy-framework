@@ -1,3 +1,57 @@
+EXCEPTION
+2024/02/23 10:13:42
+/home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
+line : 50
+Call to a member function getMethods() on null0
+
+ERROR
+2024/02/23 10:09:25
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 87
+Undefined array key 2
+
+ERROR
+2024/02/23 10:09:16
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 87
+Undefined array key 2
+
+ERROR
+2024/02/23 10:09:12
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 87
+Undefined array key 3
+
+ERROR
+2024/02/23 10:03:23
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 85
+Undefined array key 2
+
+ERROR
+2024/02/23 10:01:35
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 85
+Undefined array key 2
+
+ERROR
+2024/02/23 09:58:41
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 86
+Trying to access array offset on false
+
+ERROR
+2024/02/23 09:57:19
+/home/ubuntu/Documents/phpProjects/philosofy/core/Quack/Quack.php
+line : 84
+Uninitialized string offset 0
+
+ERROR
+2024/02/23 09:43:33
+/home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php
+line : 40
+Undefined variable $path
+
 ERROR
 2024/02/23 09:41:33
 /home/ubuntu/Documents/phpProjects/philosofy/cache/dev/home/caro.html.php

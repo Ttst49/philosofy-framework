@@ -85,6 +85,10 @@ class Quack
             $matches[1][$i] = substr($matches[1][$i],2);
             $matches[1][$i] = strstr($matches[1][$i],'"',true);
 
+            // traitement variable
+
+
+
             $route = new Router();
             $route = $route->findByName($matches[1][$i]);
               if ($route){

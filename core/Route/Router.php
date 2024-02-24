@@ -137,4 +137,14 @@ class Router
         }
         return "une route";
     }
+
+    public function makeUrlFromData(Route $route, array $data){
+        $uri = $route->getUri();
+        preg_match_all("/{(.+?)}/",$uri,$matches);
+        //
+        //$replacement = $data[$matches[0][0]];
+        $replacement = "Et y'en a marre";
+        $route->setUri(preg_replace("/{(.+?)}/",$replacement,$uri));
+        return $route;
+    }
 }

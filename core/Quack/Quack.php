@@ -79,22 +79,21 @@ class Quack
     static function parsePath($quackContent){
         preg_match_all('/{{\s* path(.+?) \s*}}/',$quackContent,$matches);
 
-
-
         for ($i=0;$i<count($matches);$i++){
+            /**
+             * preg_match("/{ (.+?):(.+?) }/",$matches[0][$i],$params);
+             * var_dump($params);
+             */
             $matches[1][$i] = substr($matches[1][$i],2);
             $matches[1][$i] = strstr($matches[1][$i],'"',true);
-
-            // traitement variable
-
-
-
-            $route = new Router();
-            $route = $route->findByName($matches[1][$i]);
-              if ($route){
+            $router = new Router();
+            $route = $router->findByName($matches[1][$i]);
+            if ($route){
+                $router->makeUrlFromData($route,["id"=>3]);
                 $quackContent = preg_replace('/{{\s* path(.+?) \s*}}/','"'.$route->getUri().'"',$quackContent,1);
               }
         }
+
 
         return $quackContent;
     }

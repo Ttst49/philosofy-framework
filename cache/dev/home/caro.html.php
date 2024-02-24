@@ -37,8 +37,8 @@
         <p>Le fruit est <?= $fruit; ?></p>
     <?php endforeach ?>
 
-    <a href="/home/show/{id}">banane</a>
-    <a href="/">Coucou</a>
+    <a class="btn btn-outline-primary" href="/home/show/Et y'en a marre">banane</a>
+    <a class="btn btn-outline-danger" href="/">Coucou</a>
 
 
 

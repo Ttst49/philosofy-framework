@@ -10,8 +10,8 @@
         <p>Le fruit est {{ fruit }}</p>
     {% endfor %}
 
-    <a href={{ path("app_home_show") }}>banane</a>
-    <a href={{ path("app_home_index") }}>Coucou</a>
+    <a class="btn btn-outline-primary" href={{ path("app_home_show",{id:2}) }}>banane</a>
+    <a class="btn btn-outline-danger" href={{ path("app_home_index") }}>Coucou</a>
 
 
 

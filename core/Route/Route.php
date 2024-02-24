@@ -11,6 +11,7 @@ class Route
     private string $name;
     private array $methods;
     private array $uriData = [];
+    private array $uriParams = [];
 
     public function getUri(): string
     {

@@ -1,5 +1,5 @@
 {
-    "name": "ttst49/philosofy",
+    "name": "ttst49/frameworkb2esd",
     "description": "php framework",
     "type": "project",
     "license": "MIT",
@@ -15,7 +15,7 @@
             "email": "thibautstachnick@gmail.com"
         }
     ],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "require": {
         "php": ">=8.1",
       "ext-ctype": "*",

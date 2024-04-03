@@ -1,4 +1,10 @@
 EXCEPTION
+2024/03/08 07:07:27
+/home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
+line : 50
+Call to a member function getMethods() on null0
+
+EXCEPTION
 2024/02/23 11:47:25
 /home/ubuntu/Documents/phpProjects/philosofy/core/Kernel/Kernel.php
 line : 50

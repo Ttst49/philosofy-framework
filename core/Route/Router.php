@@ -138,7 +138,7 @@ class Router
         return "une route";
     }
 
-    public function makeUrlFromData(Route $route, array $data){
+    public function makeUrlFromData(Route $route, array $data): Route{
         $uri = $route->getUri();
         preg_match_all("/{(.+?)}/",$uri,$matches);
         //
